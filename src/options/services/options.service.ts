@@ -59,8 +59,8 @@ export class OptionsService {
       throw new NotFoundException(`Option with id ${optionId} not found`);
     }
     Object.assign(updateOption, option);
-    await this.repo.save(updateOption);
-    return updateOption;
+    const savedOption = await this.repo.save(updateOption);
+    return savedOption;
   }
 
   //***** Delete a option *****//
